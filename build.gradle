@@ -1,0 +1,41 @@
+plugins {
+    id 'groovy'
+    id "com.github.erdi.webdriver-binaries" version "2.1"
+}
+
+ext {
+    seleniumVersion = '3.141.59'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'org.spockframework:spock-core:1.3-groovy-2.5'
+    testCompile "org.gebish:geb-spock:3.0.1"
+    testCompile "org.seleniumhq.selenium:selenium-support:$seleniumVersion"    
+    testCompile "org.seleniumhq.selenium:htmlunit-driver:2.35.1"
+    testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+    testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+    testCompile "org.seleniumhq.selenium:selenium-safari-driver:3.14.0"
+}
+
+test {
+    if (System.getProperty('geb.env')) {
+        systemProperty 'geb.env', System.getProperty('geb.env')
+    }
+    if (!System.getProperty('geb.env') || System.getProperty('geb.env') == 'htmlUnit') {
+        systemProperty 'org.apache.commons.logging.Log', 'org.apache.commons.logging.impl.SimpleLog'
+        systemProperty 'org.apache.commons.logging.simplelog.log.com.gargoylesoftware.htmlunit', 'FATAL'
+    }
+}
+
+webdriverBinaries {
+    chromedriver {
+        version = '74.0.3729.6'
+    }
+    geckodriver {
+        version = '0.24.0'
+    }
+}
