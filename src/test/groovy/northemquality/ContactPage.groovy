@@ -10,7 +10,7 @@ class ContactPage extends Page {
 
     static content = {
         mainNav(required: false) { $('#nav').module(MainNav) }
-        mobileNav(wait: true, required: false) { $('#topPanel nav').module(MainNav) }
+        mobileNav(wait: true, required: false) { $('#topPanel').module(MainNav) }
         socialMedia { $('footer#footer ul.icons').module(SocialMediaNav) }
         emailLink { $('a', href: startsWith('mailto')) }
         organizersCards { $('div.row div').moduleList(OrganizerCard) }
@@ -22,7 +22,7 @@ class ContactPage extends Page {
     }
 
     boolean isMobileNavVisible() {
-        !mobileNav.empty
+        !mobileNav.empty && mobileNav.getAttribute('style').contains("top: 0px;")
     }
 
     boolean isHamburgerButtonVisible() {

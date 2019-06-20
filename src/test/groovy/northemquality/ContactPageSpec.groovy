@@ -105,8 +105,7 @@ class ContactPageSpec extends GebSpec implements ResolutionsFixture, DriverDetec
     }
 
     @IgnoreIf({ !System.getProperty('geb.env') ||
-            System.getProperty('geb.env') == 'htmlUnit' ||
-            System.getProperty('geb.env') == 'chromeHeadless' })
+            System.getProperty('geb.env') == 'htmlUnit'})
     void "can go to Initiatives page with the hamburger Menu"() {
         given:
         size = IPHONE_8
@@ -121,7 +120,7 @@ class ContactPageSpec extends GebSpec implements ResolutionsFixture, DriverDetec
         page.openHamburgerNav()
 
         then:
-        waitFor { page.isMobileNavVisible()}
+        waitFor { page.isMobileNavVisible() }
 
         when:
         page.mobileNav.initiatives()
