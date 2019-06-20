@@ -9,7 +9,7 @@ class InitiativesPageSpec extends GebSpec implements ResolutionsFixture {
         to InitiativesPage
 
         then:
-        at InitiativesPage
+        waitFor { at InitiativesPage }
     }
 
     void "social media icons are present in Initiatives Page"() {
@@ -31,7 +31,7 @@ class InitiativesPageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.welcome()
 
         then:
-        at WelcomePage
+        waitFor { at WelcomePage }
     }
 
     void "can go to Past Events page with the main Nav"() {
@@ -43,7 +43,7 @@ class InitiativesPageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.pastEvents()
 
         then:
-        at PastEventsPage
+        waitFor { at PastEventsPage }
     }
 
     void "can go to Contact page with the main Nav"() {
@@ -55,6 +55,6 @@ class InitiativesPageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.contact()
 
         then:
-        at ContactPage
+        waitFor { at ContactPage }
     }
 }

@@ -11,7 +11,7 @@ class ContactPageSpec extends GebSpec implements ResolutionsFixture, DriverDetec
         to ContactPage
 
         then:
-        at ContactPage
+        waitFor { at ContactPage }
     }
 
     void "social media icons with links are present in contact page"() {
@@ -70,7 +70,7 @@ class ContactPageSpec extends GebSpec implements ResolutionsFixture, DriverDetec
         page.mainNav.welcome()
 
         then:
-        at WelcomePage
+        waitFor { at WelcomePage }
     }
 
     void "can go to Past Events page with the main Nav"() {
@@ -89,7 +89,7 @@ class ContactPageSpec extends GebSpec implements ResolutionsFixture, DriverDetec
         page.mainNav.pastEvents()
 
         then:
-        at PastEventsPage
+        waitFor { at PastEventsPage }
     }
 
     void "can go to Initiatives page with the main Nav"() {
@@ -101,7 +101,7 @@ class ContactPageSpec extends GebSpec implements ResolutionsFixture, DriverDetec
         page.mainNav.initiatives()
 
         then:
-        at InitiativesPage
+        waitFor { at InitiativesPage }
     }
 
     @IgnoreIf({ !System.getProperty('geb.env') ||

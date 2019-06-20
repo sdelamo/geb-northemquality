@@ -9,7 +9,7 @@ class WelcomePageSpec extends GebSpec implements ResolutionsFixture {
         to WelcomePage
 
         then:
-        at WelcomePage
+        waitFor { at WelcomePage }
     }
 
     void "social media icons are present in welcome page"() {
@@ -31,7 +31,7 @@ class WelcomePageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.welcome()
 
         then:
-        at WelcomePage
+        waitFor { at WelcomePage }
     }
 
     void "can go to Initiatives page with the main Nav"() {
@@ -43,7 +43,7 @@ class WelcomePageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.initiatives()
 
         then:
-        at InitiativesPage
+        waitFor { at InitiativesPage }
     }
 
     void "can go to Contact page with the main Nav"() {
@@ -55,7 +55,7 @@ class WelcomePageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.contact()
 
         then:
-        at ContactPage
+        waitFor { at ContactPage }
     }
 
     void "can go to Past Events page with the main Nav"() {
@@ -64,6 +64,6 @@ class WelcomePageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.pastEvents()
 
         then:
-        at PastEventsPage
+        waitFor { at PastEventsPage }
     }
 }

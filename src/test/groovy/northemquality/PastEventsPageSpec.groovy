@@ -8,7 +8,7 @@ class PastEventsPageSpec extends GebSpec implements ResolutionsFixture {
         to PastEventsPage
 
         then:
-        at PastEventsPage
+        waitFor { at PastEventsPage }
     }
 
     void "social media icons are present in Past events page"() {
@@ -30,7 +30,7 @@ class PastEventsPageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.welcome()
 
         then:
-        at WelcomePage
+        waitFor { at WelcomePage }
     }
 
     void "can go to Initiatives page with the main Nav"() {
@@ -42,7 +42,7 @@ class PastEventsPageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.initiatives()
 
         then:
-        at InitiativesPage
+        waitFor { at InitiativesPage }
     }
 
     void "can go to Contact page with the main Nav"() {
@@ -54,7 +54,7 @@ class PastEventsPageSpec extends GebSpec implements ResolutionsFixture {
         page.mainNav.contact()
 
         then:
-        at ContactPage
+        waitFor { at ContactPage }
     }
 
     void "can retrieve past events"() {
