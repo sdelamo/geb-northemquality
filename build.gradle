@@ -5,6 +5,7 @@ plugins {
 
 ext {
     seleniumVersion = '3.141.59'
+    drivers = ['chrome','chromeHeadless', 'firefox', 'firefoxHeadless', 'htmlUnit', 'safari']
 }
 
 repositories {
@@ -25,6 +26,7 @@ test {
     if (System.getProperty('geb.env')) {
         systemProperty 'geb.env', System.getProperty('geb.env')
     }
+    systemProperty "geb.build.reportsDir", reporting.file("geb/integrationTest")
     if (!System.getProperty('geb.env') || System.getProperty('geb.env') == 'htmlUnit') {
         systemProperty 'org.apache.commons.logging.Log', 'org.apache.commons.logging.impl.SimpleLog'
         systemProperty 'org.apache.commons.logging.simplelog.log.com.gargoylesoftware.htmlunit', 'FATAL'
@@ -37,5 +39,14 @@ webdriverBinaries {
     }
     geckodriver {
         version = '0.24.0'
+    }
+}
+
+
+drivers.each { driver ->
+    task "${driver}Test"(type: Test) {
+        group JavaBasePlugin.VERIFICATION_GROUP
+        systemProperty "geb.build.reportsDir", reporting.file("geb/$name")
+        systemProperty "geb.env", driver
     }
 }
