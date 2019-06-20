@@ -1,8 +1,8 @@
 package northemquality
 
-import geb.spock.GebSpec
+import geb.spock.GebReportingSpec
 
-class PastEventsPageSpec extends GebSpec implements ResolutionsFixture {
+class PastEventsPageSpec extends GebReportingSpec implements ResolutionsFixture {
     void "can retrieve Past Events Page"() {
         when:
         to PastEventsPage

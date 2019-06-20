@@ -1,10 +1,9 @@
 package northemquality
 
-import geb.spock.GebSpec
-import org.openqa.selenium.Point
+import geb.spock.GebReportingSpec
 import spock.lang.IgnoreIf
 
-class ContactPageSpec extends GebSpec implements ResolutionsFixture, DriverDetector {
+class ContactPageSpec extends GebReportingSpec implements ResolutionsFixture, DriverDetector {
 
     void "can retrieve Contact Page"() {
         when:

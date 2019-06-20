@@ -1,8 +1,8 @@
 package northemquality
 
-import geb.spock.GebSpec
+import geb.spock.GebReportingSpec
 
-class WelcomePageSpec extends GebSpec implements ResolutionsFixture {
+class WelcomePageSpec extends GebReportingSpec implements ResolutionsFixture {
 
     void "can retrieve Welcome Page"() {
         when:

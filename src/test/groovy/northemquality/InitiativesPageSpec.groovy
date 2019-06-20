@@ -1,8 +1,8 @@
 package northemquality
 
-import geb.spock.GebSpec
+import geb.spock.GebReportingSpec
 
-class InitiativesPageSpec extends GebSpec implements ResolutionsFixture {
+class InitiativesPageSpec extends GebReportingSpec implements ResolutionsFixture {
     void "can retrieve Initiatives Page"() {
 
         when:
